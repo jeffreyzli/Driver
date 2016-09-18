@@ -54,7 +54,15 @@ class FeatureWriter implements Runnable {
   }
   
   public void enqueue(FeatureFrame ff) {
-    toWrite.add(ff);
+	  boolean xd = toWrite.add(ff);
+	 
+	  try {
+		Thread.sleep(85);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  System.out.println(toWrite.isEmpty());
   }
   
 }

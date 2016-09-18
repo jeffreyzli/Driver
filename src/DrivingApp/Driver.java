@@ -49,7 +49,7 @@ public class Driver extends JFrame implements FeatureCallback, KeyListener,
 		MANUAL, MANUAL_RECORD, AUTOMATIC
 	};
 
-	private Mode driveMode = Mode.MANUAL;
+	private Mode driveMode = Mode.MANUAL_RECORD;
 	private boolean left = false;
 	private boolean right;
 	private boolean forward;
@@ -75,6 +75,7 @@ public class Driver extends JFrame implements FeatureCallback, KeyListener,
 			//RealMatrix theta2 = NeuralNetwork
 			//    .loadMatrixFromOctaveDatFile("data/theta2.dat");
 			//nn = new NeuralNetwork(theta1, theta2);
+			System.out.println(featureOutFile);
 			this.featuresOut = new PrintStream(featureOutFile);
 		} catch (FileNotFoundException e) {
 		}
@@ -260,10 +261,10 @@ public class Driver extends JFrame implements FeatureCallback, KeyListener,
 			reverse = false;
 			reverseLastChangeMs = System.currentTimeMillis();
 		} else if (keyCode == KeyEvent.VK_M) {
-			driveMode = Mode.MANUAL;
+		   //driveMode = Mode.MANUAL;
 		} else if (keyCode == KeyEvent.VK_R) {
-			driveMode = driveMode == Mode.MANUAL_RECORD ? Mode.MANUAL
-			    : Mode.MANUAL_RECORD;
+			//driveMode = driveMode == Mode.MANUAL_RECORD ? Mode.MANUAL
+			  //  : Mode.MANUAL_RECORD;
 			if (driveMode == Mode.MANUAL_RECORD) {
 				forward = true;
 			} else {
@@ -271,7 +272,7 @@ public class Driver extends JFrame implements FeatureCallback, KeyListener,
 			}
 			forwardLastChangeMs = System.currentTimeMillis();
 		} else if (keyCode == KeyEvent.VK_A) {
-			driveMode = Mode.AUTOMATIC;
+			//driveMode = Mode.AUTOMATIC;
 		} else if (keyCode == KeyEvent.VK_F) {
 			forward = !forward;
 			forwardLastChangeMs = System.currentTimeMillis();
